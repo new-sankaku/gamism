@@ -14,31 +14,33 @@ class Gamism {
         this.INIT_CLASS = 'gamism_init';
         this.ANIMATION_CONFIGS = [
             {
-                type: 'slide',
-                attributes: ['duration', 'timing']
-            },
-            {
-                type: 'flip',
-                attributes: ['duration', 'timing']
+                type: 'animation',
+                attributes: ['animation-duration', 'animation-timing-function']
             }
         ];
     }
     getAnimationType(className) {
-        const type = className.replace(this.PREFIX, '');
-        return this.ANIMATION_CONFIGS.find(config => type.toLowerCase().includes(config.type.toLowerCase()));
+        const baseClassName = className.replace(/_\d+ms$/, '');
+        if (baseClassName.includes('slideIn'))
+            return 'slideIn';
+        if (baseClassName.includes('flip'))
+            return 'flip';
+        return undefined;
     }
     createUniqueClassName(baseClass) {
         return `${baseClass}_${Math.random().toString(36).substr(2, 9)}`;
     }
-    createAnimationStyle(element, animation, config) {
+    createAnimationStyle(element, animation) {
         const uniqueClass = this.createUniqueClassName(animation);
+        const baseAnimation = animation.replace(/_\d+ms$/, '');
         let css = `.${uniqueClass} { 
-    animation-name: ${animation};
-    animation-fill-mode: forwards`;
+     animation-name: ${baseAnimation};
+     animation-fill-mode: forwards`;
+        const config = this.ANIMATION_CONFIGS[0];
         config.attributes.forEach(attr => {
-            const value = element.getAttribute(`${this.PREFIX}${config.type}-${attr}`);
+            const value = element.getAttribute(`${animation}-${attr}`);
             if (value) {
-                css += `;\n   animation-${attr}: ${value}`;
+                css += `;\n   ${attr}: ${value}`;
             }
         });
         css += `\n}`;
@@ -49,18 +51,23 @@ class Gamism {
             const animations = Array.from(element.classList)
                 .filter(className => className.startsWith(this.PREFIX));
             for (const animation of animations) {
-                const config = this.getAnimationType(animation);
-                if (!config)
+                if (!this.getAnimationType(animation)) {
                     continue;
+                }
                 const style = document.createElement('style');
-                const { css, className } = this.createAnimationStyle(element, animation, config);
+                const { css, className } = this.createAnimationStyle(element, animation);
                 style.textContent = css;
                 document.head.appendChild(style);
                 element.classList.add(className);
-                const duration = parseFloat(getComputedStyle(element).animationDuration) * 1000;
-                yield new Promise(resolve => setTimeout(resolve, duration));
-                style.remove();
-                element.classList.remove(className);
+                yield new Promise(resolve => {
+                    const handleAnimationEnd = () => {
+                        element.removeEventListener('animationend', handleAnimationEnd);
+                        style.remove();
+                        element.classList.remove(className);
+                        resolve();
+                    };
+                    element.addEventListener('animationend', handleAnimationEnd);
+                });
             }
         });
     }

@@ -36,7 +36,14 @@
   'Down': (from: rotateX(360deg), to: rotateX(0deg))
  );
  
- // Slide animations
+ %slide-base {
+  animation: var(--gamism_slide_timing) forwards;
+ }
+ 
+ %flip-base {
+  animation: var(--gamism_flip_timing) forwards;
+ }
+ 
  @each $direction, $transform in $directions {
   @keyframes gamism_slideIn#{$direction} {
    from { transform: map-get($transform, transform); }
@@ -49,15 +56,12 @@
  
   @each $suffix, $duration in $durations {
    .gamism_slideIn#{$direction}#{$suffix} {
-    animation-name: gamism_slideIn#{$direction};
-    animation-duration: $duration;
-    animation-timing-function: var(--gamism_slide_timing);
-    animation-fill-mode: forwards;
+    @extend %slide-base;
+    animation: gamism_slideIn#{$direction} $duration var(--gamism_slide_timing) forwards;
    }
   }
  }
  
- // Flip animations
  @each $direction, $rotations in $flip-directions {
   @keyframes gamism_flip#{$direction} {
    from { transform: map-get($rotations, from); }
@@ -70,10 +74,8 @@
  
   @each $suffix, $duration in $durations {
    .gamism_flip#{$direction}#{$suffix} {
-    animation-name: gamism_flip#{$direction};
-    animation-duration: $duration;
-    animation-timing-function: var(--gamism_flip_timing);
-    animation-fill-mode: forwards;
+    @extend %flip-base;
+    animation: gamism_flip#{$direction} $duration var(--gamism_flip_timing) forwards;
    }
   }
  }

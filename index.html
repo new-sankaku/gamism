@@ -1,38 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
- <link rel="stylesheet" href="css/gamism.css"> 
+ <link rel="stylesheet" href="css/gamism.css">
+ <style>
+  .description {
+   margin: 10px 0;
+   color: #666;
+   font-family: Arial, sans-serif;
+  }
+ </style>
 </head>
 <body>
+ <!-- 右からスライドイン、左からスライドイン -->
+ <div class="description">
+  ➀ 右からスライドイン（1000ms, ease-in）、その後左からスライドイン
+ </div>
+ <div class="temp_box gamism_init gamism_slideInRight gamism_slideInLeft" 
+  gamism_slideInRight-animation-duration="1000ms" 
+  gamism_slideInRight-animation-timing-function="ease-in">
+ </div>
 
-<div class="temp_box gamism_init gamism_slideInRight gamism_flipLeft" 
-     gamism_slide-duration="800ms" 
-     gamism_slide-timing="ease-in"
-     gamism_flip-duration="1200ms"></div>
-<div class="temp_box gamism_init gamism_slideInRight gamism_flipLeft gamism_slideInUp gamism_flipDown gamism_slideInLeft"
-     gamism_slide-duration="1500ms"
-     gamism_slide-timing="ease-in-out"
-     gamism_flip-duration="2500ms"></div>
+ <!-- 複合アニメーション: 右からスライドイン → 左回転 → 上からスライドイン -->
+ <div class="description">
+  ➁ 連続アニメーション：<br>
+  1. 右からスライドイン（500ms, ease-in-out）<br>
+  2. 左方向に回転（2000ms, ease-out）<br>
+  3. 上からスライドイン（800ms, linear）
+ </div>
+ <div class="temp_box gamism_init gamism_slideInRight_500ms gamism_flipLeft gamism_slideInUp" 
+  gamism_slideInRight-animation-timing-function="ease-in-out" 
+  gamism_flipLeft-animation-duration="2000ms"
+  gamism_flipLeft-animation-timing-function="ease-out"
+  gamism_slideInUp-animation-duration="800ms"
+  gamism_slideInUp-animation-timing-function="linear">
+ </div>
 
-<div class="temp_box gamism_init gamism_slideInUp   gamism_flipLeft gamism_slideInDown gamism_flipRight"></div>
-
-<div class="temp_box gamism_init gamism_slideInRight"
-     gamism_slide-timing="ease-out"></div>
-
-<div class="temp_box gamism_init gamism_slideInRight"
-     gamism_slide-timing="ease-in"></div>
-
-     <div class="temp_box gamism_init gamism_slideInUp_100ms"
-     gamism_slide-timing="ease-in"></div>
-     
-     <div class="temp_box gamism_init gamism_slideInUp_500ms"
-     gamism_slide-timing="ease-in"></div>
-<script>
-
-</script>
-
+ <script type="module" src="/dist/gamism.js"></script>
 </body>
-
-<script type="module" src="/dist/gamism.js"></script>
-
 </html>
