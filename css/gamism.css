@@ -1,0 +1,393 @@
+:root {
+  --gamism_slide_duration: 2000ms;
+  --gamism_slide_timing: ease-out;
+  --gamism_slide_distance: 200%;
+  --gamism_flip_duration: 2000ms;
+  --gamism_flip_timing: ease-out;
+}
+
+.temp_box {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  position: relative;
+  margin: 20px;
+}
+
+@keyframes gamism_slideInRight {
+  from {
+    transform: translateX(var(--gamism_slide_distance));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.gamism_slideInRight {
+  transform: translateX(var(--gamism_slide_distance));
+}
+
+.gamism_slideInRight {
+  animation-name: gamism_slideInRight;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInRight_100ms {
+  animation-name: gamism_slideInRight;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInRight_500ms {
+  animation-name: gamism_slideInRight;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInRight_1000ms {
+  animation-name: gamism_slideInRight;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInRight_2000ms {
+  animation-name: gamism_slideInRight;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+@keyframes gamism_slideInLeft {
+  from {
+    transform: translateX(calc(-1 * var(--gamism_slide_distance)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.gamism_slideInLeft {
+  transform: translateX(calc(-1 * var(--gamism_slide_distance)));
+}
+
+.gamism_slideInLeft {
+  animation-name: gamism_slideInLeft;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInLeft_100ms {
+  animation-name: gamism_slideInLeft;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInLeft_500ms {
+  animation-name: gamism_slideInLeft;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInLeft_1000ms {
+  animation-name: gamism_slideInLeft;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInLeft_2000ms {
+  animation-name: gamism_slideInLeft;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+@keyframes gamism_slideInUp {
+  from {
+    transform: translateY(var(--gamism_slide_distance));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.gamism_slideInUp {
+  transform: translateY(var(--gamism_slide_distance));
+}
+
+.gamism_slideInUp {
+  animation-name: gamism_slideInUp;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInUp_100ms {
+  animation-name: gamism_slideInUp;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInUp_500ms {
+  animation-name: gamism_slideInUp;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInUp_1000ms {
+  animation-name: gamism_slideInUp;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInUp_2000ms {
+  animation-name: gamism_slideInUp;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+@keyframes gamism_slideInDown {
+  from {
+    transform: translateY(calc(-1 * var(--gamism_slide_distance)));
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+.gamism_slideInDown {
+  transform: translateY(calc(-1 * var(--gamism_slide_distance)));
+}
+
+.gamism_slideInDown {
+  animation-name: gamism_slideInDown;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInDown_100ms {
+  animation-name: gamism_slideInDown;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInDown_500ms {
+  animation-name: gamism_slideInDown;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInDown_1000ms {
+  animation-name: gamism_slideInDown;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_slideInDown_2000ms {
+  animation-name: gamism_slideInDown;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_slide_timing);
+  animation-fill-mode: forwards;
+}
+
+@keyframes gamism_flipRight {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.gamism_flipRight {
+  transform: rotateY(0deg);
+}
+
+.gamism_flipRight {
+  animation-name: gamism_flipRight;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipRight_100ms {
+  animation-name: gamism_flipRight;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipRight_500ms {
+  animation-name: gamism_flipRight;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipRight_1000ms {
+  animation-name: gamism_flipRight;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipRight_2000ms {
+  animation-name: gamism_flipRight;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+@keyframes gamism_flipLeft {
+  from {
+    transform: rotateY(360deg);
+  }
+  to {
+    transform: rotateY(0deg);
+  }
+}
+.gamism_flipLeft {
+  transform: rotateY(360deg);
+}
+
+.gamism_flipLeft {
+  animation-name: gamism_flipLeft;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipLeft_100ms {
+  animation-name: gamism_flipLeft;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipLeft_500ms {
+  animation-name: gamism_flipLeft;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipLeft_1000ms {
+  animation-name: gamism_flipLeft;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipLeft_2000ms {
+  animation-name: gamism_flipLeft;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+@keyframes gamism_flipUp {
+  from {
+    transform: rotateX(0deg);
+  }
+  to {
+    transform: rotateX(360deg);
+  }
+}
+.gamism_flipUp {
+  transform: rotateX(0deg);
+}
+
+.gamism_flipUp {
+  animation-name: gamism_flipUp;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipUp_100ms {
+  animation-name: gamism_flipUp;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipUp_500ms {
+  animation-name: gamism_flipUp;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipUp_1000ms {
+  animation-name: gamism_flipUp;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipUp_2000ms {
+  animation-name: gamism_flipUp;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+@keyframes gamism_flipDown {
+  from {
+    transform: rotateX(360deg);
+  }
+  to {
+    transform: rotateX(0deg);
+  }
+}
+.gamism_flipDown {
+  transform: rotateX(360deg);
+}
+
+.gamism_flipDown {
+  animation-name: gamism_flipDown;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipDown_100ms {
+  animation-name: gamism_flipDown;
+  animation-duration: 100ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipDown_500ms {
+  animation-name: gamism_flipDown;
+  animation-duration: 500ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipDown_1000ms {
+  animation-name: gamism_flipDown;
+  animation-duration: 1000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+.gamism_flipDown_2000ms {
+  animation-name: gamism_flipDown;
+  animation-duration: 2000ms;
+  animation-timing-function: var(--gamism_flip_timing);
+  animation-fill-mode: forwards;
+}
+
+/*# sourceMappingURL=gamism.css.map */

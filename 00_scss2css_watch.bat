@@ -1,0 +1,1 @@
+sass --watch scss/main_gamism.scss:css/gamism.css

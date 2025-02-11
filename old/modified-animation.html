@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+:root {
+ --gamism_slide_duration: 2000ms;
+ --gamism_slide_timing: ease-out;
+ --gamism_slide_distance: 200%;
+ --gamism_flip_duration: 2000ms;
+ --gamism_flip_timing: ease-out;
+}
+
+.gamism_box {
+ width: 100px;
+ height: 100px;
+ background-color: #3498db;
+ position: relative;
+ margin: 20px;
+}
+
+@keyframes gamism_slideInRight { from {  transform: translateX(var(--gamism_slide_distance)); }            to {  transform: translateX(0); }}
+@keyframes gamism_slideInLeft  { from {  transform: translateX(calc(-1 * var(--gamism_slide_distance))); } to {  transform: translateX(0); }}
+@keyframes gamism_slideInUp    { from {  transform: translateY(var(--gamism_slide_distance)); }            to {  transform: translateY(0); }}
+@keyframes gamism_slideInDown  { from {  transform: translateY(calc(-1 * var(--gamism_slide_distance))); } to {  transform: translateY(0); }}
+
+.gamism_slideInRight{ transform: translateX(var(--gamism_slide_distance));}
+.gamism_slideInLeft { transform: translateX(calc(-1 * var(--gamism_slide_distance)));}
+.gamism_slideInUp   { transform: translateY(var(--gamism_slide_distance));}
+.gamism_slideInDown { transform: translateY(calc(-1 * var(--gamism_slide_distance)));}
+
+.gamism_slideInRight_active{ animation: gamism_slideInRight var(--gamism_slide_duration) var(--gamism_slide_timing) forwards; }
+.gamism_slideInLeft_active { animation: gamism_slideInLeft  var(--gamism_slide_duration) var(--gamism_slide_timing) forwards; }
+.gamism_slideInUp_active   { animation: gamism_slideInUp    var(--gamism_slide_duration) var(--gamism_slide_timing) forwards; }
+.gamism_slideInDown_active { animation: gamism_slideInDown  var(--gamism_slide_duration) var(--gamism_slide_timing) forwards; }
+
+.gamism_slideInRight_active_100ms{ animation: gamism_slideInRight 100ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInLeft_active_100ms { animation: gamism_slideInLeft  100ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInUp_active_100ms   { animation: gamism_slideInUp    100ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInDown_active_100ms { animation: gamism_slideInDown  100ms var(--gamism_slide_timing) forwards;}
+
+.gamism_slideInRight_active_500ms{ animation: gamism_slideInRight 500ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInLeft_active_500ms { animation: gamism_slideInLeft  500ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInUp_active_500ms   { animation: gamism_slideInUp    500ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInDown_active_500ms { animation: gamism_slideInDown  500ms var(--gamism_slide_timing) forwards;}
+
+.gamism_slideInRight_active_1000ms{ animation: gamism_slideInRight 1000ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInLeft_active_1000ms { animation: gamism_slideInLeft  1000ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInUp_active_1000ms   { animation: gamism_slideInUp    1000ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInDown_active_1000ms { animation: gamism_slideInDown  1000ms var(--gamism_slide_timing) forwards;}
+
+.gamism_slideInRight_active_2000ms{ animation: gamism_slideInRight 2000ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInLeft_active_2000ms { animation: gamism_slideInLeft  2000ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInUp_active_2000ms   { animation: gamism_slideInUp    2000ms var(--gamism_slide_timing) forwards;}
+.gamism_slideInDown_active_2000ms { animation: gamism_slideInDown  2000ms var(--gamism_slide_timing) forwards;}
+
+@keyframes gamism_flipRight{ from {  transform: rotateY(0deg); }   to {  transform: rotateY(360deg); }}
+@keyframes gamism_flipLeft { from {  transform: rotateY(360deg); } to {  transform: rotateY(0deg); }}
+@keyframes gamism_flipUp   { from {  transform: rotateX(0deg); }   to {  transform: rotateX(360deg); }}
+@keyframes gamism_flipDown { from {  transform: rotateX(360deg); } to {  transform: rotateX(0deg); }}
+
+.gamism_flipRight{ transform: rotateY(0deg);}
+.gamism_flipLeft { transform: rotateY(360deg);}
+.gamism_flipUp   { transform: rotateX(0deg);}
+.gamism_flipDown { transform: rotateX(360deg);}
+
+.gamism_flipRight_active{ animation: gamism_flipRight var(--gamism_flip_duration) var(--gamism_flip_timing) forwards;}
+.gamism_flipLeft_active { animation: gamism_flipLeft  var(--gamism_flip_duration) var(--gamism_flip_timing) forwards;}
+.gamism_flipUp_active   { animation: gamism_flipUp    var(--gamism_flip_duration) var(--gamism_flip_timing) forwards;}
+.gamism_flipDown_active { animation: gamism_flipDown  var(--gamism_flip_duration) var(--gamism_flip_timing) forwards;}
+
+.gamism_flipRight_active_100ms{ animation: gamism_flipRight 100ms var(--gamism_flip_timing) forwards;}
+.gamism_flipLeft_active_100ms { animation: gamism_flipLeft  100ms var(--gamism_flip_timing) forwards;}
+.gamism_flipUp_active_100ms   { animation: gamism_flipUp    100ms var(--gamism_flip_timing) forwards;}
+.gamism_flipDown_active_100ms { animation: gamism_flipDown  100ms var(--gamism_flip_timing) forwards;}
+
+.gamism_flipRight_active_500ms{ animation: gamism_flipRight 500ms var(--gamism_flip_timing) forwards;}
+.gamism_flipLeft_active_500ms { animation: gamism_flipLeft  500ms var(--gamism_flip_timing) forwards;}
+.gamism_flipUp_active_500ms   { animation: gamism_flipUp    500ms var(--gamism_flip_timing) forwards;}
+.gamism_flipDown_active_500ms { animation: gamism_flipDown  500ms var(--gamism_flip_timing) forwards;}
+
+.gamism_flipRight_active_1000ms{ animation: gamism_flipRight 1000ms var(--gamism_flip_timing) forwards;}
+.gamism_flipLeft_active_1000ms { animation: gamism_flipLeft  1000ms var(--gamism_flip_timing) forwards;}
+.gamism_flipUp_active_1000ms   { animation: gamism_flipUp    1000ms var(--gamism_flip_timing) forwards;}
+.gamism_flipDown_active_1000ms { animation: gamism_flipDown  1000ms var(--gamism_flip_timing) forwards;}
+
+.gamism_flipRight_active_2000ms{ animation: gamism_flipRight 2000ms var(--gamism_flip_timing) forwards;}
+.gamism_flipLeft_active_2000ms { animation: gamism_flipLeft  2000ms var(--gamism_flip_timing) forwards;}
+.gamism_flipUp_active_2000ms   { animation: gamism_flipUp    2000ms var(--gamism_flip_timing) forwards;}
+.gamism_flipDown_active_2000ms { animation: gamism_flipDown  2000ms var(--gamism_flip_timing) forwards;}
+</style>
+</head>
+<body>
+
+<div class="gamism_box gamism gamism_slideInRight gamism_flipLeft" 
+     data-slide-duration="800ms" 
+     data-slide-timing="ease-in"
+     data-flip-duration="1200ms"></div>
+<div class="gamism_box gamism gamism_slideInRight gamism_flipLeft gamism_slideInUp gamism_flipDown gamism_slideInLeft"
+     data-slide-duration="1500ms"
+     data-slide-timing="ease-in-out"
+     data-flip-duration="2500ms"></div>
+<div class="gamism_box gamism gamism_slideInRight_active_100ms gamism_flipUp_active_100ms gamism_slideInLeft_active_100ms gamism_flipDown_active_100ms"></div>
+<div class="gamism_box gamism gamism_slideInUp_active_2000ms gamism_flipLeft_active_2000ms gamism_slideInDown_active_2000ms gamism_flipRight_active_2000ms"></div>
+<div class="gamism_box gamism gamism_slideInRight"
+     data-slide-timing="ease-out"></div>
+<div class="gamism_box gamism gamism_slideInRight"
+     data-slide-timing="ease-in"></div>
+
+<script>
+class Gamism {
+ async animate(element) {
+  const animations = Array.from(element.classList)
+   .filter(className => className.startsWith('gamism_'))
+   .filter(className => !className.includes('active'));
+
+  for (const animation of animations) {
+   const type = animation.replace('gamism_', '');
+   const baseType = type.split('In')[0].split('Up')[0].split('Down')[0].split('Left')[0].split('Right')[0];
+   const activeClass = `gamism_${type}_active`;
+   
+   const dataDuration = element.dataset[`${baseType}Duration`];
+   const dataTiming = element.dataset[`${baseType}Timing`];
+   
+   if (dataDuration || dataTiming) {
+    const style = document.createElement('style');
+    const uniqueClass = `${activeClass}_${Math.random().toString(36).substr(2, 9)}`;
+    let css = `.${uniqueClass} { animation: gamism_${type}`;
+    
+    if (dataDuration) {
+     css += ` ${dataDuration}`;
+    } else {
+     css += ` var(--gamism_${baseType}_duration)`;
+    }
+    
+    if (dataTiming) {
+     css += ` ${dataTiming}`;
+    } else {
+     css += ` var(--gamism_${baseType}_timing)`;
+    }
+    
+    css += ' forwards; }';
+    
+    style.textContent = css;
+    document.head.appendChild(style);
+    element.classList.add(uniqueClass);
+   } else {
+    element.classList.add(activeClass);
+   }
+   
+   const duration = parseFloat(getComputedStyle(element).animationDuration) * 1000;
+   await new Promise(resolve => setTimeout(resolve, duration));
+  }
+ }
+}
+
+const gamism = new Gamism();
+
+window.onload = function() {
+ const elements = document.getElementsByClassName('gamism');
+ Array.from(elements).forEach(element => {
+  gamism.animate(element);
+ });
+};
+</script>
+
+</body>
+</html>

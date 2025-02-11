@@ -1,0 +1,7 @@
+{
+ "scripts": {
+   "watch": "tsc --watch",
+   "serve": "serve",
+   "start": "npm run watch & npm run serve"
+ }
+}

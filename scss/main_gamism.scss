@@ -1,0 +1,79 @@
+:root {
+  --gamism_slide_duration: 2000ms;
+  --gamism_slide_timing: ease-out;
+  --gamism_slide_distance: 200%;
+  --gamism_flip_duration: 2000ms;
+  --gamism_flip_timing: ease-out;
+ }
+ 
+ .temp_box {
+  width: 100px;
+  height: 100px;
+  background-color: #3498db;
+  position: relative;
+  margin: 20px;
+ }
+ 
+ $durations: (
+  '': 2000ms,
+  '_100ms': 100ms,
+  '_500ms': 500ms,
+  '_1000ms': 1000ms,
+  '_2000ms': 2000ms
+ );
+ 
+ $directions: (
+  'Right': (transform: translateX(var(--gamism_slide_distance))),
+  'Left': (transform: translateX(calc(-1 * var(--gamism_slide_distance)))),
+  'Up': (transform: translateY(var(--gamism_slide_distance))),
+  'Down': (transform: translateY(calc(-1 * var(--gamism_slide_distance))))
+ );
+ 
+ $flip-directions: (
+  'Right': (from: rotateY(0deg), to: rotateY(360deg)),
+  'Left': (from: rotateY(360deg), to: rotateY(0deg)),
+  'Up': (from: rotateX(0deg), to: rotateX(360deg)),
+  'Down': (from: rotateX(360deg), to: rotateX(0deg))
+ );
+ 
+ // Slide animations
+ @each $direction, $transform in $directions {
+  @keyframes gamism_slideIn#{$direction} {
+   from { transform: map-get($transform, transform); }
+   to { transform: translateX(0); }
+  }
+ 
+  .gamism_slideIn#{$direction} {
+   transform: map-get($transform, transform);
+  }
+ 
+  @each $suffix, $duration in $durations {
+   .gamism_slideIn#{$direction}#{$suffix} {
+    animation-name: gamism_slideIn#{$direction};
+    animation-duration: $duration;
+    animation-timing-function: var(--gamism_slide_timing);
+    animation-fill-mode: forwards;
+   }
+  }
+ }
+ 
+ // Flip animations
+ @each $direction, $rotations in $flip-directions {
+  @keyframes gamism_flip#{$direction} {
+   from { transform: map-get($rotations, from); }
+   to { transform: map-get($rotations, to); }
+  }
+ 
+  .gamism_flip#{$direction} {
+   transform: map-get($rotations, from);
+  }
+ 
+  @each $suffix, $duration in $durations {
+   .gamism_flip#{$direction}#{$suffix} {
+    animation-name: gamism_flip#{$direction};
+    animation-duration: $duration;
+    animation-timing-function: var(--gamism_flip_timing);
+    animation-fill-mode: forwards;
+   }
+  }
+ }
